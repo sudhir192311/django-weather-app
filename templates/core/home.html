@@ -1,0 +1,97 @@
+{% load static %}
+
+<!doctype html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Django Weather App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
+        }
+        body{
+              /* background-color:rgb(17,187,178); */
+              background-image: url('https://picsum.photos/1330/?blur=3');
+        }
+
+        #main {
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        input[type='text'] {
+            width: 30%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 2px solid black;
+        }
+
+        input[type='submit'] {
+            width: 30%;
+            padding: 5px;
+            background: black;
+            color: white;
+            text-transform: uppercase;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        .social-menu h1{
+            text-align: center;
+        }
+        .social-media{
+            text-align: center;
+        }
+        .social-media a{
+           
+    font-size: 30px;
+        }
+    </style>
+</head>
+<body image>
+<div id="main">
+    <h1>Find the Weather</h1>
+    <form method="GET">
+        <div>
+            <label for="city"></label>
+            <input type="text" id="city" value="{{ request.GET.city }}" placeholder="City..." name="city"/>
+        </div>
+        <input type="submit" value="Submit"/>
+    </form>
+    {% if result %}
+    <h3>{{ result.region }}</h3>
+    <h3>{{ result.dayhour }}</h3>
+    <h3>{{ result.temp_now }}</h3>
+    <h3>{{ result.weather_now }}</h3>
+
+    {% endif %}
+</div>
+<div class="social-menu">
+    <h1>Connect With Me</h1>
+    <div class="social-media">
+        <a href="https://fb.com//sudhir.swain.1023/"><i class="fa fa-facebook"></i></a>
+
+        <a href="https://twitter.com/Sudhir44744485"><i class="fa fa-twitter"></i></a>
+        <a href="https://instagram.com/311.sud"><i class="fa fa-instagram"></i></a>
+        <a href="https://www.youtube.com/channel/UC08zUd-DSQ_7-HfzO6jqCVw"><i class="fa fa-youtube"></i></a>
+        <a href="https://www.linkedin.com/in/sudhir-swain-67b2931a3/"><i class="fa fa-linkedin"></i></a>
+    </div>
+
+    <div class="created">
+        <p style="color: grey;text-align: center;margin-top: 120p "></p>
+        <p style="color:red; text-align:center; margin-top:50px;  ">Developed By <span style="text-decoration: none;"><a href="https://github.com/sudhir192311">Sudhir swain</a></span></p>
+    </div>
+
+
+</div>
+</body>
+</html>
